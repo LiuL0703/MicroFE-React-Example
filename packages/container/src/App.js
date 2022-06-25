@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import About from './About';
 import Header from './Header';
 import Loadable from 'react-loadable'
-import AppManager from './AppManager';
+import { subLoader } from './SubLoader'
 
 const Logo = () => {
   return <div>LOGO</div>
@@ -26,12 +26,6 @@ const loadableComponent = (loader) => {
       )
     }
   })
-}
-
-const subLoader = (name) => async () => {
-  const App = await AppManager.loadSubApp('subApp')
-  console.log({App, window})
-  return App[name]
 }
 
 const App = () => {
